@@ -11,9 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Base64;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 @Slf4j
@@ -36,7 +34,7 @@ public class ReportingApiServiceImpl implements ReportingApiService {
         String authorization = username + ":" + password;
         try {
             HttpHeaders headers = new HttpHeaders();
-            headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+            headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
             headers.set("accept-language", acceptLanguage);
             headers.set("Clearance-Status", clearanceType);
             headers.set("Accept-Version", "V2");
